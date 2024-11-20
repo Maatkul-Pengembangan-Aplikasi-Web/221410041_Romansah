@@ -15,6 +15,18 @@ class ProdiController extends Controller
         return view('prodi.index', compact('prodis'));
     }
 
+    // Menambahkan fungsi pencarian
+    public function search(Request $request)
+    {
+        $search = $request->input('search'); // Mengambil input pencarian
+        $prodis = Prodi::query()
+            ->where('nama', 'like', "%{$search}%") // Filter berdasarkan nama
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('prodi.index', compact('prodis', 'search'));
+    }
+
     // Menampilkan formulir untuk menambahkan Program Studi
     public function create()
     {
@@ -32,32 +44,42 @@ class ProdiController extends Controller
             'nama' => $request->nama // Menyimpan nama Program Studi
         ]);
 
-        return redirect()->route('prodi')->with('success', 'Program Studi berhasil ditambahkan');
+        // Redirect ke halaman utama Program Studi
+        return redirect('/prodi')->with('success', 'Program Studi berhasil ditambahkan');
     }
+
+    // Menampilkan formulir untuk mengedit Program Studi
     public function edit($id)
-{
-    $prodi = Prodi::findOrFail($id);
-    return view('prodi.edit', compact('prodi'));
-}
+    {
+        $prodi = Prodi::findOrFail($id);
+        return view('prodi.edit', compact('prodi'));
+    }
 
-public function update(Request $request, $id)
-{
-    $request->validate([
-        'nama' => 'required'
-    ]);
+    // Memperbarui data Program Studi
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required'
+        ]);
 
-    $prodi = Prodi::findOrFail($id);
-    $prodi->update([
-        'nama' => $request->nama
-    ]);
+        $prodi = Prodi::findOrFail($id);
+        $prodi->update([
+            'nama' => $request->nama
+        ]);
 
-    return redirect()->route('prodi')->with('success', 'Program Studi berhasil diupdated');
-}
-public function delete($id)
-{
-    $prodi = Prodi::findOrFail($id);
-    $prodi->delete();
+        // Redirect ke halaman utama Program Studi
+        return redirect('/prodi')->with('success', 'Program Studi berhasil diperbarui');
+    }
 
-    return redirect()->route('prodi')->with('success', 'Data Program Studi berhasil dihapus');
-}
+    // Menghapus data Program Studi
+    public function delete($id)
+    {
+        $prodi = Prodi::findOrFail($id);
+        $prodi->delete();
+
+        // Redirect ke halaman utama Program Studi
+        return redirect('/prodi')->with('success', 'Data Program Studi berhasil dihapus');
+    }
+
+    
 }
