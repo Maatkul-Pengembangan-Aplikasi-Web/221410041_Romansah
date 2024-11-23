@@ -1,49 +1,15 @@
 <nav x-data="{ open: false }" class="bg-[#800000] border-b border-gray-100">
-    <!-- Menu Navigasi Utama -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             <!-- Kiri: UNIVERSITAS MAJALENGKA -->
             <div class="flex items-center text-white text-xl font-semibold">
                 UNIVERSITAS MAJALENGKA
             </div>
+
             <head>
-                <!-- Link untuk Font Awesome -->
                 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
             </head>
 
-            <!-- Tengah: Tautan Navigasi -->
-            <div class="flex justify-center flex-1 space-x-8">
-                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white">
-                    {{ __('Dashboard') }}
-                </x-nav-link>
-                <x-nav-link :href="route('/prodi')" :active="request()->routeIs('/prodi')" class="text-white">
-                    {{ __('Program Studi') }}
-                </x-nav-link>
-            </div>
-
-            <!-- Kanan: Ikon Media Sosial -->
-            <div class="flex items-center space-x-4 text-white">
-                <!-- Facebook -->
-                <a href="https://facebook.com" target="_blank" class="text-white hover:text-blue-600 transition duration-300">
-                    <i class="fab fa-facebook-f text-2xl"></i>
-                </a>
-                <!-- Instagram -->
-                <a href="https://instagram.com" target="_blank" class="text-white hover:text-pink-600 transition duration-300">
-                    <i class="fab fa-instagram text-2xl"></i>
-                </a>
-                <!-- TikTok -->
-                <a href="https://tiktok.com" target="_blank" class="text-white hover:text-black transition duration-300">
-                    <i class="fab fa-tiktok text-2xl"></i>
-                </a>
-                <!-- X (Twitter) -->
-                <a href="https://x.com" target="_blank" class="text-white hover:text-blue-400 transition duration-300">
-                    <i class="fab fa-x text-2xl"></i>
-                </a>
-                <!-- YouTube -->
-                <a href="https://youtube.com" target="_blank" class="text-white hover:text-red-600 transition duration-300">
-                    <i class="fab fa-youtube text-2xl"></i>
-                </a>
-            </div>
 
             <!-- Dropdown Pengaturan -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -51,7 +17,6 @@
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-[#800000] hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
-
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -65,7 +30,6 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
-                        <!-- Otentikasi -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -114,7 +78,6 @@
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
-                <!-- Otentikasi -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 

@@ -34,19 +34,38 @@
                 </a>
 
                 <a href="{{ route('/prodi') }}" class="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-green-100 transition-all duration-300 ease-in-out transform hover:scale-105">
-                    <i class="fas fa-book text-4xl text-green-500 mb-4"></i>
-                    <h4 class="font-semibold text-xl text-gray-700">Mata Kuliah</h4>
-                    <p class="text-gray-600">7 Mata Kuliah Aktif</p>
+                    <i class="fas fa-university text-4xl text-green-500 mb-4"></i>
+                    <h4 class="font-semibold text-xl text-gray-700">Program Studi</h4>
+                    <p class="text-gray-600">Fakultas Teknik</p>
                 </a>
 
-                <a href="{{ route('jadwal.index') }}" class="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-yellow-100 transition-all duration-300 ease-in-out transform hover:scale-105">
-                    <i class="fas fa-calendar-alt text-4xl text-yellow-500 mb-4"></i>
-                    <h4 class="font-semibold text-xl text-gray-700">Jadwal Kelas</h4>
-                    <p class="text-gray-600">Cek Jadwal Kelas Terbaru</p>
+                <a href="{{ route('matakuliah.index') }}" class="bg-white shadow-lg rounded-lg p-6 text-center hover:bg-yellow-100 transition-all duration-300 ease-in-out transform hover:scale-105">
+                    <i class="fas fa-book-open text-4xl text-yellow-500 mb-4"></i>
+                    <h4 class="font-semibold text-xl text-gray-700">Mata Kuliah</h4>
+                    <p class="text-gray-600">Mata Kuliah Aktif</p>
                 </a>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
+        <p class="text-sm">&copy; {{ date('Y') }} Copyright by: Omen. All rights reserved.</p>
+        <div class="flex justify-center mt-2">
+            <a href="https://www.instagram.com/im_omenn/" target="_blank" class="mx-2 text-white hover:text-gray-400 transition-colors">
+                <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="https://www.tiktok.com/search?q=kevin_sky6&t=1732356764838" target="_blank" class="mx-2 text-white hover:text-gray-400 transition-colors">
+                <i class="fab fa-tiktok text-xl"></i>
+            </a>
+            <a href="https://www.youtube.com" target="_blank" class="mx-2 text-white hover:text-gray-400 transition-colors">
+                <i class="fab fa-youtube text-xl"></i>
+            </a>
+            <a href="https://web.facebook.com/profile.php?id=100029411961267" target="_blank" class="mx-2 text-white hover:text-gray-400 transition-colors">
+                <i class="fab fa-facebook text-xl"></i>
+            </a>
+        </div>
+    </footer>
 
     <!-- Add Bootstrap JS for carousel functionality -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
